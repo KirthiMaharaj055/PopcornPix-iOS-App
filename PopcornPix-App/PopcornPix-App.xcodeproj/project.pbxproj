@@ -99,6 +99,9 @@
 		7658768A2C7CBFE3004F60E4 /* PopcornPix-App */ = {
 			isa = PBXGroup;
 			children = (
+				765876BD2C7CC0D1004F60E4 /* ViewControllers */,
+				765876BC2C7CC0BF004F60E4 /* Services */,
+				765876BB2C7CC0B4004F60E4 /* Models */,
 				7658768B2C7CBFE3004F60E4 /* AppDelegate.swift */,
 				7658768D2C7CBFE3004F60E4 /* SceneDelegate.swift */,
 				7658768F2C7CBFE3004F60E4 /* ViewController.swift */,
@@ -125,6 +128,27 @@
 				765876AE2C7CBFE4004F60E4 /* PopcornPix_AppUITestsLaunchTests.swift */,
 			);
 			path = "PopcornPix-AppUITests";
+			sourceTree = "<group>";
+		};
+		765876BB2C7CC0B4004F60E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		765876BC2C7CC0BF004F60E4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		765876BD2C7CC0D1004F60E4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
