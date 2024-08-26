@@ -7,14 +7,18 @@
 
 import Foundation
 
-struct Movies: Codable {
-    let movieId: Int
+struct Movies: Decodable {
+    let id: Int
     let title: String
-    let releaseDate: String
-    let posterPath: String?
+    let release_date: String
+    let poster_path: String?
 }
 
-struct MovieResponse: Codable {
+struct MovieResponse: Decodable {
     let results: [Movies]
+    
+    enum CodingKeys: String, CodingKey {
+        case results = "results"
+    }
 }
 

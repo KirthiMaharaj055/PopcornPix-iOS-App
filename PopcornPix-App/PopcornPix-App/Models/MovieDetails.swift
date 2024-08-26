@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct MovieDetails: Codable {
+struct MovieDetails: Decodable {
     let id: Int
-       let title: String
-       let overview: String
-       let releaseDate: String
-       let posterPath: String?
-       let genres: [Genre]
+    let original_title: String
+    let overview: String
+    let release_date: String
+    let poster_path: String?
+    let genres: [Genre]
+    
 }
 
-struct Genre: Codable {
+struct Genre: Decodable {
     let id: Int
     let name: String
 }
