@@ -16,6 +16,10 @@
 		765876A32C7CBFE4004F60E4 /* PopcornPix_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876A22C7CBFE4004F60E4 /* PopcornPix_AppTests.swift */; };
 		765876AD2C7CBFE4004F60E4 /* PopcornPix_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876AC2C7CBFE4004F60E4 /* PopcornPix_AppUITests.swift */; };
 		765876AF2C7CBFE4004F60E4 /* PopcornPix_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876AE2C7CBFE4004F60E4 /* PopcornPix_AppUITestsLaunchTests.swift */; };
+		765876BF2C7CC586004F60E4 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876BE2C7CC586004F60E4 /* MovieService.swift */; };
+		765876C12C7CCB8B004F60E4 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876C02C7CCB8B004F60E4 /* Movies.swift */; };
+		765876C32C7CCDA0004F60E4 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765876C22C7CCDA0004F60E4 /* MovieDetails.swift */; };
+		765876C52C7CFB2F004F60E4 /* gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 765876C42C7CFB2F004F60E4 /* gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		765876A82C7CBFE4004F60E4 /* PopcornPix-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PopcornPix-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		765876AC2C7CBFE4004F60E4 /* PopcornPix_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopcornPix_AppUITests.swift; sourceTree = "<group>"; };
 		765876AE2C7CBFE4004F60E4 /* PopcornPix_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopcornPix_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		765876BE2C7CC586004F60E4 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		765876C02C7CCB8B004F60E4 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		765876C22C7CCDA0004F60E4 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		765876C42C7CFB2F004F60E4 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 		7658767F2C7CBFE3004F60E4 = {
 			isa = PBXGroup;
 			children = (
+				765876C42C7CFB2F004F60E4 /* gitignore */,
 				7658768A2C7CBFE3004F60E4 /* PopcornPix-App */,
 				765876A12C7CBFE4004F60E4 /* PopcornPix-AppTests */,
 				765876AB2C7CBFE4004F60E4 /* PopcornPix-AppUITests */,
@@ -133,6 +142,8 @@
 		765876BB2C7CC0B4004F60E4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				765876C02C7CCB8B004F60E4 /* Movies.swift */,
+				765876C22C7CCDA0004F60E4 /* MovieDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +151,7 @@
 		765876BC2C7CC0BF004F60E4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				765876BE2C7CC586004F60E4 /* MovieService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				765876952C7CBFE4004F60E4 /* Assets.xcassets in Resources */,
+				765876C52C7CFB2F004F60E4 /* gitignore in Resources */,
 				765876982C7CBFE4004F60E4 /* Base in Resources */,
 				765876932C7CBFE3004F60E4 /* Base in Resources */,
 			);
@@ -284,7 +297,10 @@
 			files = (
 				765876902C7CBFE3004F60E4 /* ViewController.swift in Sources */,
 				7658768C2C7CBFE3004F60E4 /* AppDelegate.swift in Sources */,
+				765876BF2C7CC586004F60E4 /* MovieService.swift in Sources */,
 				7658768E2C7CBFE3004F60E4 /* SceneDelegate.swift in Sources */,
+				765876C12C7CCB8B004F60E4 /* Movies.swift in Sources */,
+				765876C32C7CCDA0004F60E4 /* MovieDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
