@@ -23,4 +23,7 @@ struct MovieDetails: Decodable {
 struct Genre: Decodable {
     let id: Int
     let name: String
+    enum CodingKeys: String, CodingKey {
+        case id, name
+    }
 }

@@ -110,7 +110,9 @@ class MovieTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MovieDetailViewController{
-            destination.movies = moviesList[(tableView.indexPathForSelectedRow?.row)!]
+            //destination.movies = moviesList[(tableView.indexPathForSelectedRow?.row)!]
+            destination.movieID = moviesList[(tableView.indexPathForSelectedRow?.row)!].id
+
         }
     }
 
