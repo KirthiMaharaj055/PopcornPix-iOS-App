@@ -27,10 +27,3 @@ struct Genre: Decodable {
         case id, name
     }
 }
-
-struct GenreResponse: Decodable {
-    let genres: [Genre]
-    enum CodingKeys: String, CodingKey {
-        case genres = "genres"
-    }
-}
