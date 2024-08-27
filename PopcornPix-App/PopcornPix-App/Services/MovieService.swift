@@ -13,29 +13,6 @@ class MovieService {
     private let baseURL = "https://api.themoviedb.org/3/"
     private let apiKey = "c9856d0cb57c3f14bf75bdc6c063b8f3"
     var movieId: Int?
-//        func fetchTrendingMovies(completion: @escaping (Result<[Movies], Error>) -> Void) {
-//            let url = URL(string: "\(baseURL)discover/movie?api_key=\(apiKey)")!
-//            URLSession.shared.dataTask(with: url) { data, response, error in
-//                if let error = error {
-//                    completion(.failure(error))
-//                    return
-//                }
-//                
-//                guard let data = data else {
-//                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-//                    return
-//                }
-//                
-//                do {
-//                    let movies = try JSONDecoder().decode(MovieResponse.self, from: data).results
-//                    completion(.success(movies))
-//                    print(movies)
-//                } catch let jsonError {
-//                    completion(.failure(jsonError))
-//                    print(jsonError)
-//                }
-//            }.resume()
-//        }
     
     func fetchAllMoviesApi(completion: @escaping (Result<[Movies], Error>) -> Void) {
         let urlString = "\(baseURL)discover/movie?api_key=\(apiKey)"
@@ -66,31 +43,6 @@ class MovieService {
     }
     
     
-    func fetchMovieDetails(completion: @escaping (Result<MovieDetails, Error>) -> Void) {
-        let urlString = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)"
-        let urlNew:String = urlString.replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespacesAndNewlines)
-        let url = URL(string: urlNew)!
-        let sharedSession = URLSession.shared
-        let request = URLRequest(url: url)
-        
-        let task = sharedSession.dataTask(with: request) { data, _, error in
-            guard let jsonData = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-                return
-            }
-            
-            do{
-                let movieDetail = try JSONDecoder().decode(MovieDetails.self, from: jsonData)
-                completion(.success(movieDetail))
-                print(movieDetail)
-            } catch let jsonError {
-                completion(.failure(jsonError))
-                print(jsonError)
-            }
-        }
-        task.resume()
-    }
-    
     func fetchMovieDetail(for movieId: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void) {
         let urlString = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)"
         
@@ -113,12 +65,12 @@ class MovieService {
 //                completion(.failure(error))
 //                return
 //            }
-//            
+//
 //            guard let jsonData = data else {
 //                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
 //                return
 //            }
-//            
+//
 //            do {
 //                let movieDetail = try JSONDecoder().decode(MovieDetails.self, from: jsonData)
 //                completion(.success(movieDetail))
@@ -135,6 +87,7 @@ class MovieService {
             
             do{
                 let movieDetail = try JSONDecoder().decode(MovieDetails.self, from: jsonData)
+                
                 completion(.success(movieDetail))
                 print(movieDetail)
             } catch let jsonError {

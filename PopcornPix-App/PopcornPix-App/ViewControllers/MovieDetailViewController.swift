@@ -13,9 +13,9 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieMins: UILabel!
     @IBOutlet weak var movieReleaseDate: UILabel!
-    @IBOutlet weak var movieDetail: UITextView!
     @IBOutlet weak var movieGenres: UILabel!
-    
+    @IBOutlet weak var movieLang: UILabel!
+    @IBOutlet weak var movieDetail: UILabel!
     let movieProvider = MovieService()
     var movies: Movies?
     var movieDetails: MovieDetails?
@@ -43,21 +43,6 @@ class MovieDetailViewController: UIViewController {
     
     private func getMovieDetails(){
         movieProvider.movieId = movieID
-//        movieProvider.fetchMovieDetails {[weak self] result in
-//            switch result {
-//            case .success(let movieDetails):
-//                print(movieDetails)
-//                self?.movieDetails = movieDetails
-//                DispatchQueue.main.async {
-//                    self?.configure(with: movieDetails)
-//                }
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    self?.showErrorAlert(message: error.localizedDescription)
-//                }
-//            }
-//            
-//        }
         
         movieProvider.fetchMovieDetail(for: movieID) { [weak self] result in
             switch result {
@@ -78,10 +63,14 @@ class MovieDetailViewController: UIViewController {
     func configure(with movie: MovieDetails) {
             self.movieDetails = movie
         movieTitle.text = " \(movie.original_title)"
-        movieMins.text = "\(movie.runtime) mins |"
-        movieReleaseDate.text = " \(movie.release_date)"
+        movieMins.text = "\(movie.runtime) mins|"
+        movieReleaseDate.text = "\(movie.release_date)|"
+        movieLang.text = "\(movie.original_language)"
         movieDetail.text = "\(movie.overview)"
         
+       // Convert genres array to a string with names separated by " - "
+        let genreNames = movie.genres.map { $0.name }.joined(separator: " - ")
+        movieGenres.text = genreNames
         
         // Fetch the image asynchronously
         if let posterPath = movie.poster_path, let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
