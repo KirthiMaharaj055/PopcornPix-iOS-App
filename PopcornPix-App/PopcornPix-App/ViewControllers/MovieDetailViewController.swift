@@ -39,6 +39,10 @@ class MovieDetailViewController: UIViewController {
         
     }
 
-
+    func configure(with movie: MovieDetails) {
+            self.movieDetails = movie
+            // Update UI with movie details
+        }
+    
 }
 
