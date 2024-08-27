@@ -68,7 +68,8 @@ class MovieService {
     
     func fetchMovieDetails(completion: @escaping (Result<MovieDetails, Error>) -> Void) {
         let urlString = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)"
-        let url = URL(string: urlString)!
+        let urlNew:String = urlString.replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespacesAndNewlines)
+        let url = URL(string: urlNew)!
         let sharedSession = URLSession.shared
         let request = URLRequest(url: url)
         
@@ -90,9 +91,15 @@ class MovieService {
         task.resume()
     }
     
-//    func fetchMovieDetails(for movieId: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void) {
-//        let urlString = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)"
-//        
+    func fetchMovieDetail(for movieId: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void) {
+        let urlString = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)"
+        
+        let urlNew:String = urlString.replacingOccurrences(of: " ", with: "+").trimmingCharacters(in: .whitespacesAndNewlines)
+        let url = URL(string: urlNew)!
+        let sharedSession = URLSession.shared
+        let request = URLRequest(url: url)
+        
+        
 //        guard let url = URL(string: urlString) else {
 //            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
 //            return
@@ -100,7 +107,7 @@ class MovieService {
 //
 //        let sharedSession = URLSession.shared
 //        let request = URLRequest(url: url)
-//        
+        
 //        let task = sharedSession.dataTask(with: request) { data, _, error in
 //            if let error = error {
 //                completion(.failure(error))
@@ -119,9 +126,25 @@ class MovieService {
 //                completion(.failure(jsonError))
 //            }
 //        }
-//        
-//        task.resume()
-//    }
+        
+        let task = sharedSession.dataTask(with: request) { data, _, error in
+            guard let jsonData = data else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
+                return
+            }
+            
+            do{
+                let movieDetail = try JSONDecoder().decode(MovieDetails.self, from: jsonData)
+                completion(.success(movieDetail))
+                print(movieDetail)
+            } catch let jsonError {
+                completion(.failure(jsonError))
+                print(jsonError)
+            }
+        }
+        
+        task.resume()
+    }
 
     
 }
