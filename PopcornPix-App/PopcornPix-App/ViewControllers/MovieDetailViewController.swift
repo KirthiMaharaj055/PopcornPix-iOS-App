@@ -7,10 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieDetailViewController: UIViewController {
 
     let MovieProvider = MovieService()
-    var Movie: [Movies]?
+    var movie: [Movies]?
+    var movies: Movies?
+    var movieDetails: MovieDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,10 @@ class ViewController: UIViewController {
         
     }
 
-
+    func configure(with movie: MovieDetails) {
+            self.movieDetails = movie
+            // Update UI with movie details
+        }
+    
 }
 
