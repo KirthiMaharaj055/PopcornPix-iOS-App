@@ -10,7 +10,9 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
     let MovieProvider = MovieService()
-    var Movie: [Movies]?
+    var movie: [Movies]?
+    var movies: Movies?
+    var movieDetails: MovieDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
