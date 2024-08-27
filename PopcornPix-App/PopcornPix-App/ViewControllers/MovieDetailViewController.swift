@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieDetailViewController: UIViewController {
 
     let MovieProvider = MovieService()
     var Movie: [Movies]?
