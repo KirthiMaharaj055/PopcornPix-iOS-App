@@ -8,8 +8,11 @@
 import UIKit
 
 class MovieTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var movieSerach: UISearchBar!
+    
     let movieService = MovieService()
+    var filteredMoviesList = [Movies]()
     
     var moviesList = [Movies]() {
         didSet{
@@ -25,6 +28,8 @@ class MovieTableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        movieSerach.delegate = self
+        movieSerach.placeholder = "Search..."
         
         getAllMovieList()
         tableView.dataSource = self
@@ -40,6 +45,7 @@ class MovieTableViewController: UITableViewController {
             case .success(let successMovie):
                 print(successMovie)
                 self?.moviesList = successMovie
+                self?.filteredMoviesList = successMovie
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -58,14 +64,14 @@ class MovieTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return moviesList.count
+        return filteredMoviesList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
         
-        cell.configure(withInfo: self.moviesList[indexPath.row])
+        cell.configure(withInfo: self.filteredMoviesList[indexPath.row])
         return cell
     }
     
@@ -116,4 +122,21 @@ class MovieTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension MovieTableViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchText.isEmpty {
+                filteredMoviesList = moviesList
+            } else {
+                filteredMoviesList = moviesList.filter { movie in
+                    movie.title.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+            tableView.reloadData()
+        }
+        
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder() // Dismiss the keyboard when the search button is clicked
+        }
 }
