@@ -10,8 +10,8 @@ PopcornPix is a stylish iOS app crafted with Swift and UIKit, perfect for movie 
 - Responsive and modern UI design.
 
 ## Screenshots
-![Home Screen](https://github.com/user-attachments/assets/80a98a0d-f826-41e1-b039-c96d1672276b)
-![Movie Details](https://github.com/user-attachments/assets/805d142f-8421-4a12-9f9d-eb7333d7a863)
+<img src="https://github.com/user-attachments/assets/80a98a0d-f826-41e1-b039-c96d1672276b" alt="Home Screen" width="300"/>
+<img src="https://github.com/user-attachments/assets/805d142f-8421-4a12-9f9d-eb7333d7a863" alt="Movie Details" width="300"/>
 
 ### Prerequisites
 - Xcode 12.0 or later
