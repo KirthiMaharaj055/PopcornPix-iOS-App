@@ -29,7 +29,7 @@ class MovieTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         movieSerach.delegate = self
-        movieSerach.placeholder = "Search..."
+        //movieSerach.placeholder = "Search..."
         
         getAllMovieList()
         tableView.dataSource = self
@@ -117,7 +117,7 @@ class MovieTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MovieDetailViewController{
             //destination.movies = moviesList[(tableView.indexPathForSelectedRow?.row)!]
-            destination.movieID = moviesList[(tableView.indexPathForSelectedRow?.row)!].id
+            destination.movieID = filteredMoviesList[(tableView.indexPathForSelectedRow?.row)!].id
 
         }
     }
