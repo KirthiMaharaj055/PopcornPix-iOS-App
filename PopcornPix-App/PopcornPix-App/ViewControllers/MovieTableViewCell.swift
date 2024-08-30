@@ -17,15 +17,6 @@ class MovieTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-//    func configure(withInfo movies: Movies){
-//        self.movieTitle.text = movies.title
-//        
-//        let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500\((movies.backdrop_path)!)")
-//        if let dataImage = try? Data(contentsOf: imageUrl!)  {
-//            self.movieImage.image = UIImage(data: dataImage)
-//        }
-//    }
-    
 
     func configure(withInfo movies: Movies) {
         self.movieTitle.text = movies.title

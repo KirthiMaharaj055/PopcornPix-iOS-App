@@ -52,33 +52,6 @@ class MovieService {
         let request = URLRequest(url: url)
         
         
-//        guard let url = URL(string: urlString) else {
-//            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-//            return
-//        }
-//
-//        let sharedSession = URLSession.shared
-//        let request = URLRequest(url: url)
-        
-//        let task = sharedSession.dataTask(with: request) { data, _, error in
-//            if let error = error {
-//                completion(.failure(error))
-//                return
-//            }
-//
-//            guard let jsonData = data else {
-//                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-//                return
-//            }
-//
-//            do {
-//                let movieDetail = try JSONDecoder().decode(MovieDetails.self, from: jsonData)
-//                completion(.success(movieDetail))
-//            } catch let jsonError {
-//                completion(.failure(jsonError))
-//            }
-//        }
-        
         let task = sharedSession.dataTask(with: request) { data, _, error in
             guard let jsonData = data else {
                 completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))

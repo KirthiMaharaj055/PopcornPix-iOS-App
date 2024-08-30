@@ -28,17 +28,6 @@ class MovieDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        //let exampleMovieId = 550
-        
-//        MovieService.shared.fetchMovieDetails{ result in
-//            switch result {
-//                case .success(let movieDetail):
-//                print("Fetched movie detail: \(movieDetail)")
-//                case .failure(let error):
-//                    print("Failed to fetch movie detail: \(error)")
-//            }
-//        }
-        
     }
     
     private func getMovieDetails(){
